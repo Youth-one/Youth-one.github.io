@@ -26,10 +26,17 @@ main {
   color: #fff;
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+}
+
 nav ul li {
   margin-top: 50px;
   display: inline-block;
   margin-right: 20px;
+  align-items: center;
+  align-content: center;
 }
 
 nav ul li a {
