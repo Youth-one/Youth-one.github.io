@@ -19,3 +19,26 @@ body {
   margin-right: auto;
   width: 80%;
 }
+
+main {
+  background-color: aqua;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  display: block;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #333;
+}
