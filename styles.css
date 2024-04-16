@@ -10,9 +10,11 @@ Section : 인터넷설계실습
   Remember: This body ruleset is to get you started, but does not count
   towards the CSP requirements!
 */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 body {
   background-color: lightsteelblue;
-  font-family: "Helvetica", sans-serif;
+  font-family: "Nunito", sans-serif;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
