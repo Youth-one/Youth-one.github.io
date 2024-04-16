@@ -21,10 +21,13 @@ body {
 }
 
 main {
+  margin-top: 500px;
   background-color: red;
+  color: #fff;
 }
 
 nav ul li {
+  margin-top: 50px;
   display: inline-block;
   margin-right: 20px;
 }
