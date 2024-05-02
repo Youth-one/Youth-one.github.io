@@ -13,26 +13,47 @@
     <script src="index.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Deokso Gym</h1>
-        <p>이곳은 헬스를 하며 참고하는 좋은 정보들을 모아보고 싶습니다!</p>
-        <div>
-            <p>입력된 이름: <span id="nameSpan"></span></p>
+    <div id="userInfo">
+        <h2>성함과 나이를 입력하세요</h2>
+        <label for="name">성함:</label>
+        <input type="text" id="name">
+        <label for="age">나이:</label>
+        <input type="number" id="age">
+        <label for="gender">성별:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">남성</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">여성</label>
+        <button id="submitInfo">제출</button>
+    </div>
+    <div id="main" class = "hidden">
+        <header>
+            <h1>Welcome to Deokso Gym</h1>
+            <p>이곳은 헬스를 하며 참고하는 좋은 정보들을 모아보고 싶습니다!</p>
+            <div>
+                <p>내 정보 : <span id="nameSpan"></span> <span id="ageSpan"></span></p>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="about.html">전 사이트로 돌아가기</a></li>
+                <li><a href="https://www.youtube.com/@chulsoonofficial">어깨운동은? 황철순</a></li>
+                <li><a href="https://www.youtube.com/@Allright24_">하체운동은? 박재훈</a></li>
+            </ul>
+        </nav>
+        <div id="todoContainer">
+            <h2>오늘 할 운동</h2>
+            <input type="text" id="todoInput" placeholder="오늘 조질 부위..">
+            <button id="addTodo">추가</button>
+            <ul id="todoList"></ul>
         </div>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="about.html">전 사이트로 돌아가기</a></li>
-            <li><a href="https://www.youtube.com/@chulsoonofficial">어깨운동은? 황철순</a></li>
-            <li><a href="https://www.youtube.com/@Allright24_">하체운동은? 박재훈</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section>
-            <h2>Gym friend</h2>
-            <p>인천 연수,송도쪽에 거주하고 계신분들중에 같이 운동보조하며 헬스하실분을 찾습니다</p>
-            <p>010-6417-6057로 연락주세요</p>
-        </section>
-    </main>
+        <main>
+            <section>
+                <h2>Gym friend</h2>
+                <p>인천 연수,송도쪽에 거주하고 계신분들중에 같이 운동보조하며 헬스하실분을 찾습니다</p>
+                <p>010-6417-6057로 연락주세요</p>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
