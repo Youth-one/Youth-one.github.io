@@ -13,7 +13,7 @@ Section : 인터넷설계실습
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 body {
-  background-color: lightsteelblue;
+  background-color: #787878;
   font-family: "Nunito";
   margin-left: auto;
   margin-right: auto;
@@ -67,4 +67,126 @@ header h1 {
 
 header p {
   font-size: 24px;
+}
+
+#userInfo {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#userInfo h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+#userInfo label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+#userInfo input[type="text"],
+#userInfo input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#userInfo button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#userInfo button:hover {
+  background-color: #0056b3;
+}
+
+#userInfo label[for="male"],
+#userInfo label[for="female"] {
+    margin-right: 10px;
+}
+
+#userInfo input[type="radio"] {
+  margin-right: 5px;
+  vertical-align: middle;
+  display: inline-block;
+}
+#userInfo label[for="male"], #userInfo label[for="female"], #userInfo input[type="radio"] {
+  display: inline-block;
+}
+
+#todoContainer {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#todoContainer h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+#todoInput {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#addTodo {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#addTodo:hover {
+  background-color: #0056b3;
+}
+
+#todoList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#todoList li {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#todoList li:hover {
+  background-color: #f5f5f5;
+}
+.hidden {
+  display: none;
 }
