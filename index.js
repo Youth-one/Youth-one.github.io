@@ -9,7 +9,7 @@ ToDo list아래에 get a idea라는 버튼을 만들어 giphy api에서 excercis
 
 (function() {
   const query = 'exercise';
-  const apiKey = 'WBp68pqUlQeoTkoL3oK1YeOD2irsOl0c';  // 여기에 정확한 Giphy API 키를 입력하세요
+  const apiKey = 'WBp68pqUlQeoTkoL3oK1YeOD2irsOl0c';
   const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${encodeURIComponent(query)}&limit=100`;
 
   window.addEventListener("load", init);
