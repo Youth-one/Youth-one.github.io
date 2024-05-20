@@ -6,17 +6,18 @@ ToDo list아래에 get a idea라는 버튼을 만들어 giphy api에서 excercis
 키워드를 가지고 얻은 image 파일들을 화면에 나오게 하구싶습니다. 
 */
 "use strict";
+
 (function() {
   const query = 'exercise';
-  const apiKey = 'WBp68pqUlQeoTkoL3oK1YeOD2irsOl0c';
-  const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${encodeURIComponent(query)}&limit=10`;
+  const apiKey = 'WBp68pqUlQeoTkoL3oK1YeOD2irsOl0c';  // 여기에 정확한 Giphy API 키를 입력하세요
+  const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${encodeURIComponent(query)}&limit=100`;
 
   window.addEventListener("load", init);
 
   function init() {
     id("submitInfo").addEventListener("click", showMainPage);
     id("addTodo").addEventListener("click", addTodo);
-    id("get-idea").addEventListener("click",makingIdea);
+    id("get-idea").addEventListener("click", makingIdea);
   }
 
   function showMainPage() {
@@ -24,45 +25,48 @@ ToDo list아래에 get a idea라는 버튼을 만들어 giphy api에서 excercis
     let ageValue = id("age").value;
     id("userInfo").classList.add("hidden");
     id("main").classList.remove("hidden");
-    const nameSpan = document.getElementById('nameSpan');
-    const ageSpan = document.getElementById('ageSpan');
-    nameSpan.textContent = nameValue;
-    ageSpan.textContent = ageValue;
+    id("nameSpan").textContent = nameValue;
+    id("ageSpan").textContent = ageValue;
   }
+
   function addTodo() {
     let todoInput = id("todoInput").value;
-        if (todoInput.trim() !== "") {
-            let todoList = id("todoList");
-            let todoItem = document.createElement("li");
-            todoItem.textContent = todoInput;
-            todoList.appendChild(todoItem);
-            id("todoInput").value = "";
-        }
+    if (todoInput.trim() !== "") {
+      let todoList = id("todoList");
+      let todoItem = document.createElement("li");
+      todoItem.textContent = todoInput;
+      todoList.appendChild(todoItem);
+      id("todoInput").value = "";
+    }
   }
+
   function makingIdea() {
     fetch(apiUrl)
       .then(resp => resp.json())
       .then(data => {
-        const gifimages = id("gifs");
-        gifimages.innerHTML = '';
+        const gifContainer = id("gifs");
+        gifContainer.innerHTML = '';
 
-        data.data.forEach(gif => {
+        if (data.data.length > 0) {
+          const randomIndex = Math.floor(Math.random() * data.data.length);
+          const gif = data.data[randomIndex];
           const img = document.createElement('img');
           img.src = gif.images.fixed_height.url;
-          gifimages.appendChild(img); 
-        });
+          gifContainer.appendChild(img);
+        } else {
+          gifContainer.innerHTML = '<p>운동 관련 GIF를 찾을 수 없습니다.</p>';
+        }
       })
       .catch(error => {
         console.error('Error fetching GIFs:', error);
-        const gifContainer = document.getElementById('gifs');
+        const gifContainer = id('gifs');
         gifContainer.innerHTML = '<p>GIF를 가져오는 중 오류가 발생했습니다. 다시 시도해 주세요.</p>';
-    });
+      });
   }
 
   function id(name) {
     return document.getElementById(name);
   }
-
   function qs(query) {
     return document.querySelector(query);
   }
@@ -80,5 +84,6 @@ ToDo list아래에 get a idea라는 버튼을 만들어 giphy api에서 excercis
   function handleError(err) { 
     console.log(err);
   }
-
 })();
+
+
