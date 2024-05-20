@@ -1,19 +1,22 @@
 /*
 NAME : YouSungWon
-DATE : 24/04/30
+DATE : 24/05/20
 Section : 인터넷설계실습
-처음사이트에 접속을하면 성함 , 남/여 여부를 체크하고 다음 페이지로 넘어가며
-운동한 경력을 물어보고 상태를 저장하고 자기의 몸무게 체중 골격근량 체지방률 등을 저장하여
-그래프로 나타내어 시간에(날짜)의 변화에 따라 자기 몸의 상태를 한눈에 확인할수있는 페이지도 구현하고싶습니다.
+ToDo list아래에 get a idea라는 버튼을 만들어 giphy api에서 excercise라는 단어의 
+키워드를 가지고 얻은 image 파일들을 화면에 나오게 하구싶습니다. 
 */
 "use strict";
 (function() {
+  const query = 'exercise';
+  const apiKey = 'WBp68pqUlQeoTkoL3oK1YeOD2irsOl0c';
+  const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${encodeURIComponent(query)}&limit=10`;
 
   window.addEventListener("load", init);
 
   function init() {
     id("submitInfo").addEventListener("click", showMainPage);
     id("addTodo").addEventListener("click", addTodo);
+    id("get-idea").addEventListener("click",makingIdea);
   }
 
   function showMainPage() {
@@ -33,8 +36,27 @@ Section : 인터넷설계실습
             let todoItem = document.createElement("li");
             todoItem.textContent = todoInput;
             todoList.appendChild(todoItem);
-            id("todoInput").value = ""; 
+            id("todoInput").value = "";
         }
+  }
+  function makingIdea() {
+    fetch(apiUrl)
+      .then(resp => resp.json())
+      .then(data => {
+        const gifimages = id("gifs");
+        gifimages.innerHTML = '';
+
+        data.data.forEach(gif => {
+          const img = document.createElement('img');
+          img.src = gif.images.fixed_height.url;
+          gifimages.appendChild(img); 
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching GIFs:', error);
+        const gifContainer = document.getElementById('gifs');
+        gifContainer.innerHTML = '<p>GIF를 가져오는 중 오류가 발생했습니다. 다시 시도해 주세요.</p>';
+    });
   }
 
   function id(name) {
@@ -48,4 +70,15 @@ Section : 인터넷설계실습
   function qsa(query) {
     return document.querySelectorAll(query);
   }
+  async function statusCheck(res) {
+    if (!res.ok) {
+      throw new Error(await res.text());
+    }
+    return res;
+  }
+
+  function handleError(err) { 
+    console.log(err);
+  }
+
 })();
