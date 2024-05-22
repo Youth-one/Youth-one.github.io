@@ -191,7 +191,7 @@ header p {
 #get-idea {
   display: inline-block;
   padding: 15px 30px;
-  font-size: 1.2em;
+  font-size: 20pt;
   color: #fff;
   background-color: #333;
   border: none;
@@ -216,6 +216,11 @@ header p {
   height: auto;
   border: 2px solid #fff;
   border-radius: 10px;
+}
+
+#gifs p{
+  font-size: 50pt;
+  color : #fff;
 }
 
 .hidden {
