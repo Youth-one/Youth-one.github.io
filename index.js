@@ -54,13 +54,11 @@ ToDo list아래에 get a idea라는 버튼을 만들어 giphy api에서 excercis
           img.src = gif.images.fixed_height.url;
           gifContainer.appendChild(img);
         } else {
-          gifContainer.innerHTML = '<p>운동 관련 GIF를 찾을 수 없습니다.</p>';
+          handleError(error);
         }
       })
       .catch(error => {
-        console.error('Error fetching GIFs:', error);
-        const gifContainer = id('gifs');
-        gifContainer.innerHTML = '<p>GIF를 가져오는 중 오류가 발생했습니다. 다시 시도해 주세요.</p>';
+        handleError(error);
       });
   }
 
@@ -82,7 +80,8 @@ ToDo list아래에 get a idea라는 버튼을 만들어 giphy api에서 excercis
   }
 
   function handleError(err) { 
-    console.log(err);
+    const errorHouse = id('gifs');
+    errorHouse.innerHTML = `<p>이미지 불러오기를 실패했습니다. 사유: ${err}</p>`;
   }
 })();
 
